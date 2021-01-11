@@ -3,8 +3,9 @@
     "username": "mehek",
     "password": "Mysunshine2",
     "database": "freud_test",
-    "host": "127.0.0.1",
-    "dialect": "postgres"
+    "host": "localhost",
+    "dialect": "postgres",
+    "operatorsAliases": false
   },
   "test": {
     "username": "root",
@@ -14,10 +15,12 @@
     "dialect": "mysql"
   },
   "production": {
-    "username": "root",
-    "password": null,
-    "database": "database_production",
-    "host": "127.0.0.1",
-    "dialect": "mysql"
+    "username": "mehek",
+    "password": "Mysunshine2",
+    "database": "freud_test",
+    "host": "localhost",
+    "dialect": "postgres",
+    "operatorsAliases": false,
+    "use_env_variable": "DATABASE_URL"
   }
 }
