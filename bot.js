@@ -23,14 +23,14 @@ createPhrase('ping', 'pong');
 
 client.on('message', msg => {
     if (msg.author.id != client.user.id) {
-        var msgContent = msg.content
+        var msgContent = msg.content.toLowerCase();
         if (msgContent.startsWith('f!help')) {
             msg.channel.send('Use `f!add` to add new phrases for Freud to respond to. Make sure you separate user prompts and Freud responses with `|`.\nFor example `f!add who\'s joe|joe mama` will cause Freud to respond to any message containing \"who\'s joe\" with \"joe mama\"\n\nUse `f!phrases` to check what Freud\'s current vocabulary is.');
         }
     
         else if (msgContent.startsWith('f!add')) {
-            var addedq = msgContent.split('f!add ')[1].split('|')[0];
-            var addeda = msgContent.split('f!add ')[1].split('|')[1];
+            var addedq = msgContent.split('f!add ')[1].split('|')[0].toLowerCase();
+            var addeda = msgContent.split('f!add ')[1].split('|')[1].toLowerCase();
 
             createPhrase(addedq, addeda);
 
