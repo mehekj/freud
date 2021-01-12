@@ -19,8 +19,6 @@ async function retrievePhrases() {
     return phrases;
 }
 
-createPhrase('ping', 'pong');
-
 client.on('message', msg => {
     if (msg.author.id != client.user.id) {
         var msgContent = msg.content.toLowerCase();
@@ -45,6 +43,11 @@ client.on('message', msg => {
                 }
                 msg.channel.send(output);
             });
+        }
+
+        else if (msgContent.startsWith('f!remove')) {
+            remove_id = parseInt(msgContent.split(' ')[1]);
+            db.Phrase.destroy({where: {id: remove_id}});
         }
 
         else {
