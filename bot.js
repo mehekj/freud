@@ -78,6 +78,6 @@ var nightMessage = new cron.CronJob('00 30 21 * * *', () => {
 
 
 var job = new cron.CronJob('* * * * * *', function() {
-    client.channels.get('690616693436842097').send('testing by the second');
+    client.channels.cache.get('690616693436842097').send('testing by the second');
   }, null, true, 'America/New_York');
   job.start();
