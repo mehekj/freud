@@ -70,7 +70,7 @@ var morningMessage = new cron.CronJob('00 00 08 * * *', () => {
 
 // morningMessage.start();
 
-var nightMessage = new cron.CronJob('00 14 17 * * *', () => {
+cron.schedule('00 19 17 * * *', function() {
     client.channels.get('690616693436842097').send('Good night friends! If you\'re still awake go to sleep soon or else I will come find you and do it myself! :)');
 });
 
