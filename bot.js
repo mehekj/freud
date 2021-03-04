@@ -1,6 +1,8 @@
 require('dotenv').config();
 const db = require('./models/index.js');
 
+const cron = require('cron');
+
 const Discord = require('discord.js');
 const client = new Discord.Client();
 
@@ -61,3 +63,9 @@ client.on('message', msg => {
         }
     }
 });
+
+var nightMessage = new cron.CronJob('00 17 * * *', () => {
+    client.channels.get('689160581336531058').send('Sorry ignore this I\'m just testing something.');
+});
+
+nightMessage.start();
