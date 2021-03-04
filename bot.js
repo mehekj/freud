@@ -64,13 +64,13 @@ client.on('message', msg => {
     }
 });
 
-var morningMessage = new cron.CronJob('00 08 * * *', () => {
+var morningMessage = new cron.CronJob('00 00 08 * * *', () => {
     client.channels.get('689160581336531058').send('Good morning! Let\'s make today a great day! Here\'s your daily reminder that you are loved. Not by me. But by someone else here probably.');
 });
 
 // morningMessage.start();
 
-var nightMessage = new cron.CronJob('04 17 * * *', () => {
+var nightMessage = new cron.CronJob('00 14 17 * * *', () => {
     client.channels.get('690616693436842097').send('Good night friends! If you\'re still awake go to sleep soon or else I will come find you and do it myself! :)');
 });
 
