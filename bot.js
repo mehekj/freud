@@ -65,19 +65,13 @@ client.on('message', msg => {
 });
 
 var morningMessage = new cron.CronJob('00 00 08 * * *', () => {
-    client.channels.get('689160581336531058').send('Good morning! Let\'s make today a great day! Here\'s your daily reminder that you are loved. Not by me. But by someone else here probably.');
+    client.channels.cache.get('689160581336531058').send('Good morning! Let\'s make today a great day! Here\'s your daily reminder that you are loved. Not by me. But by someone else here probably.');
 });
 
-// morningMessage.start();
+morningMessage.start();
 
 var nightMessage = new cron.CronJob('00 30 21 * * *', () => {
-    client.channels.get('690616693436842097').send('Good night friends! If you\'re still awake go to sleep soon or else I will come find you and do it myself! :)');
+    client.channels.cache.get('689160581336531058').send('Good night friends! If you\'re still awake go to sleep soon or else I will come find you and do it myself! :)');
 });
 
-// nightMessage.start();
-
-
-var job = new cron.CronJob('* * * * * *', function() {
-    client.channels.cache.get('690616693436842097').send('testing by the second');
-  }, null, true, 'America/New_York');
-  job.start();
+nightMessage.start();
