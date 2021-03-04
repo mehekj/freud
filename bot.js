@@ -70,8 +70,14 @@ var morningMessage = new cron.CronJob('00 00 08 * * *', () => {
 
 // morningMessage.start();
 
-cron.schedule('00 19 17 * * *', function() {
+var nightMessage = new cron.CronJob('00 30 21 * * *', () => {
     client.channels.get('690616693436842097').send('Good night friends! If you\'re still awake go to sleep soon or else I will come find you and do it myself! :)');
 });
 
-nightMessage.start();
+// nightMessage.start();
+
+
+var job = new CronJob('* * * * * *', function() {
+    client.channels.get('690616693436842097').send('testing by the second');
+  }, null, true, 'America/New_York');
+  job.start();
