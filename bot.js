@@ -73,3 +73,8 @@ var nightMessage = new cron.CronJob('30 23 * * *', function() {
     client.channels.cache.get('689160581336531058').send('Good night friends! If you\'re still awake go to sleep soon or else I will come find you and do it myself! :)');
 }, null, true, 'America/New_York');
 nightMessage.start();
+
+var pianoMan = new cron.CronJob('0 21 * * 6', function() {
+    client.channels.cache.get('689160581336531058').send('https://youtu.be/gxEPV4kolz0');
+}, null, true, 'America/New_York');
+pianoMan.start();
