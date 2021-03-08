@@ -17,8 +17,14 @@ function createPhrase(prompt, answer) {
 }
 
 async function retrievePhrases() {
-    let phrases = await db.Phrase.findAll({ raw: true });
-    return phrases;
+    try {
+        let phrases = await db.Phrase.findAll({ raw: true });
+        return phrases;
+    }
+    catch(error) {
+        console.error(error);
+        throw error;
+    }
 }
 
 client.on('message', msg => {
