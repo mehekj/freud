@@ -70,13 +70,29 @@ client.on('message', msg => {
     }
 });
 
+
+
+morningMessages =  [
+    "Get up sluts it’s 8 am",
+    "AAAAAAAA FUCK THERESA FUCKIGNG FROOT LOOPS™️ BIRD ON MY BED",
+    "HEY EVERYPONY!",
+    "Good morning! Let\'s make today a great day! Here\'s your daily reminder that you are loved. Not by me. But by someone else here probably."
+];
+
+nightMessages = [
+    "ssssssssssssssssssssssssssssssssshhhhhhhhhhhhhhhhhhhhhhhhhh............ close your eyes my sweet............. the fear of the present day will soon become the nightmare of days past...... rest while you still have the lungs to do it.",
+    "All good bitches go to bed before daddy freud gets angry...",
+    "Good night friends! If you\'re still awake go to sleep soon or else I will come find you and do it myself! :)"
+];
+
+
 var morningMessage = new cron.CronJob('00 08 * * *', function() {
-    client.channels.cache.get('689160581336531058').send('Good morning! Let\'s make today a great day! Here\'s your daily reminder that you are loved. Not by me. But by someone else here probably.');
+    client.channels.cache.get('689160581336531058').send(morningMessages[Math.floor(Math.random() * morningMessages.length)]);
 }, null, true, 'America/New_York');
 morningMessage.start();
 
 var nightMessage = new cron.CronJob('30 23 * * *', function() {
-    client.channels.cache.get('689160581336531058').send('Good night friends! If you\'re still awake go to sleep soon or else I will come find you and do it myself! :)');
+    client.channels.cache.get('689160581336531058').send(nightMessages[Math.floor(Math.random() * nightMessages.length)]);
 }, null, true, 'America/New_York');
 nightMessage.start();
 
