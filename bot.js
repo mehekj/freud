@@ -44,7 +44,10 @@ var insults = [
     "Your yabos are inferior",
     "At least a magnet is attractive",
     "Honey...no",
-    "Your mom."
+    "Your mom.",
+    "Not even your mother would hug you",
+    "HIB",
+    "Ha you’re most likely short must suck"
 ]
 
 client.on('ready', () => {
