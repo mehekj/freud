@@ -19,7 +19,32 @@ var insults = [
     "Ladies, ladies, absolutely NONE of you are valid",
     "Get therapy babe",
     "Why do you want me to insult you? I’m a robot. What am I gonna call you, gay? We already know",
-    "Baby u are built like an empty can of black beans"
+    "Baby u are built like an empty can of black beans",
+    "ur mom gay",
+    "I wouldn’t fuck you even if you looked like my mother.",
+    "Are you Mrs. Dunay? Because you deserve to crumble like your crumb cake.",
+    "A boy? Hoe.",
+    "Ha you’ve never even dated anyone",
+    "God please leave me alone, I’m already dead",
+    "I’m gonna make your grave a communal bathroom",
+    "You look like you had a tumblr in 2014. You know the response for ‘I like your shoelaces’ & it shows",
+    "Id rob you but the only thing in your pockets is a Starbucks receipt and toothpaste stains",
+    "You’re worse than me, and I’m Freud",
+    ":/",
+    "Cmon..... you know. You know.",
+    "Gay gay homosexual gay",
+    "😔 I don’t wanna be funny anymore",
+    "how sad is this bitch? Shame kink havin mother fucker",
+    "You read Harry Potter as a kid and I know you did. See, I know you did because of your relationship with your mother. As you have previously stated-",
+    "BBBRRRRAUGGHHHSGSGHHJ!!!! THATS WHAT I HEAR WHEN U TALK!! BAABABABHAAABHAVBDBRHRHSGAHDV",
+    "heeeeeeyy sexyyyy ;;))))....... shit sorry wrong person. Never contact me again. Slut",
+    "What are you doing with your life? Not anything better than I am",
+    "I’m gonna fuck your mom",
+    "Haha, virgin",
+    "Your yabos are inferior",
+    "At least a magnet is attractive",
+    "Honey...no",
+    "Your mom."
 ]
 
 client.on('ready', () => {
@@ -121,3 +146,8 @@ var pianoMan = new cron.CronJob('0 21 * * 6', function() {
     client.channels.cache.get('689160581336531058').send('https://youtu.be/gxEPV4kolz0');
 }, null, true, 'America/New_York');
 pianoMan.start();
+
+var piDay = new cron.CronJob('59 13 14 3 *', function() {
+    client.channels.cache.get('689160581336531058').send('3.1415926535897932384626433832795028841971693993751058209749445923078164062862089986280348253421170679821480865132823066470938446095505822317253594081284811174502841027019385211055596446229489549303819644288109756659334461284756482337867831652712019091456485669234603486104543266482133936072602491412737245870066063155881748815209209628292540917153643678925903600113305305488204665213841469519415116094330572703657595919530921861173819326117931051185480744623799627495673518857527248912279381830119491298336733624406566430860213949463952247371907021798609437027705392171762931767523846748184676694051320005681271452635608277857713427577896091736371787214684409012249534301465495853710507922796892589235420199561121290219608640344181598136297747713099605187072113499999983729780499510597317328160963185950244594553469083026425223082533446850352619311881710100031378387528865875332083814206171776691473035982534904287554687311595628638823537875937519577818577805321712268066130019278766111959092164201989');
+}, null, true, 'America/New_York');
+piDay.start();
