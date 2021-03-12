@@ -6,6 +6,22 @@ const cron = require('cron');
 const Discord = require('discord.js');
 const client = new Discord.Client();
 
+var insults = [
+    "You are a prime example of an Oedipus complex",
+    "I wouldn’t even fuck you and we all know my track record",
+    "Yeah? Little bitch baby? Youre too pussy to even eat lettuce aren’t you",
+    "Whore.",
+    "You never left the oral stage and it shows",
+    "I don’t do this shit for free fuck off",
+    "Mwah",
+    "Have an absolutely terrible day. Just complete and utter shit. I hope your funerals tomorrow, asshole",
+    "Your teeth are subpar",
+    "Ladies, ladies, absolutely NONE of you are valid",
+    "Get therapy babe",
+    "Why do you want me to insult you? I’m a robot. What am I gonna call you, gay? We already know",
+    "Baby u are built like an empty can of black beans"
+]
+
 client.on('ready', () => {
     console.log(`Logged in as ${client.user.tag}!`);
 });
@@ -31,7 +47,7 @@ client.on('message', msg => {
     if (msg.author.id != client.user.id) {
         var msgContent = msg.content.toLowerCase();
         if (msgContent.startsWith('f!help')) {
-            msg.channel.send('Use `f!add` to add new phrases for Freud to respond to. Make sure you separate user prompts and Freud responses with `|`.\nFor example `f!add who\'s joe|joe mama` will cause Freud to respond to any message containing \"who\'s joe\" with \"joe mama\"\n\nUse `f!phrases` to check what Freud\'s current vocabulary is.\n\nUse `f!remove ID_NUMBER_OF_PHRASE` to remove unwanted phrases.\nFor example `f!remove 3` will remove the prompt and response set assigned an ID number of 3 in the list of phrases.');
+            msg.channel.send('Use `f!add` to add new phrases for Freud to respond to. Make sure you separate user prompts and Freud responses with `|`.\nFor example `f!add who\'s joe|joe mama` will cause Freud to respond to any message containing \"who\'s joe\" with \"joe mama\"\n\nUse `f!phrases` to check what Freud\'s current vocabulary is.\n\nUse `f!remove ID_NUMBER_OF_PHRASE` to remove unwanted phrases.\nFor example `f!remove 3` will remove the prompt and response set assigned an ID number of 3 in the list of phrases.\n\nUse `f!insult` if you want your self worth to be destroyed.');
         }
     
         else if (msgContent.startsWith('f!add')) {
@@ -56,6 +72,10 @@ client.on('message', msg => {
         else if (msgContent.startsWith('f!remove')) {
             remove_id = parseInt(msgContent.split(' ')[1]);
             db.Phrase.destroy({where: {id: remove_id}});
+        }
+
+        else if (msgContent.startsWith('f!insult')) {
+            msg.channel.send(insults[Math.floor(Math.random() * insults.length)]);
         }
 
         else {
