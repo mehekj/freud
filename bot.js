@@ -47,7 +47,15 @@ var insults = [
     "Your mom.",
     "Not even your mother would hug you",
     "HIB",
-    "Ha you’re most likely short must suck"
+    "Ha you’re most likely short must suck",
+    "die die die die die die die die die die",
+    "Don’t you have an essay to write, bitch?",
+    "This won’t fill the void in your soul",
+    "You look like your favorite skittle flavor is green apple",
+    "Your personality is best described by the sound that’s made when you rub two styrofoam packing peanuts together",
+    "The only reason you’re still alive today is because God forgot you in the back of their cosmic fridge",
+    "You smell like mothballs and cat hair",
+    "please let me go I can’t stand you whores"
 ]
 
 client.on('ready', () => {
@@ -124,7 +132,8 @@ morningMessages =  [
     "Get up sluts it’s 8 am",
     "AAAAAAAA FUCK THERESA FUCKIGNG FROOT LOOPS™️ BIRD ON MY BED",
     "HEY EVERYPONY!",
-    "Good morning! Let\'s make today a great day! Here\'s your daily reminder that you are loved. Not by me. But by someone else here probably."
+    "Good morning! Let\'s make today a great day! Here\'s your daily reminder that you are loved. Not by me. But by someone else here probably.",
+    "Good morning, everyone! It is now 7 a.m. and nighttime is officially over! Time to rise and shine! Get ready to greet another beee-yutiful day!"
 ];
 
 nightMessages = [
@@ -132,7 +141,11 @@ nightMessages = [
     "All good bitches go to bed before daddy freud gets angry...",
     "Good night friends! If you\'re still awake go to sleep soon or else I will come find you and do it myself! :)",
     "every minute you stay awake pass this point you stray farther from gods light",
-    "Get in the bed or get in the fucking urn. Your choice."
+    "Get in the bed or get in the fucking urn. Your choice.",
+    "good afternoon christine. bedtime for everyone else",
+    "friendly reminder to turn ur game activity off so people dont judge u for playing minecraft at 4 am",
+    "This is a school announcement. It is now 11:30 p.m. As such, it is officially nighttime. Soon the doors to the dining hall will be locked, and entry at that point is strictly prohibited. Okay then... sweet dreams, everyone! Good night, sleep tight, don't let the bed bugs bite...",
+    "Hello? Hello, hello? Uhh, I wanted to record a message for you... to help you get settled in on your first night. Um, I actually worked in that office before you. I’m... finishing up my last week now, as a matter of fact, so... I know it can be a bit overwhelming, but I’m here to tell you: there’s nothing to worry about. Uh, you’ll do fine! So... let’s just focus on getting you through your first week. Okay?\nUh, let’s see. First, there’s an introductory greeting from the company that I’m supposed to read. Eh, it’s kind of a legal thing, you know. Um, 'Welcome to Freddy Fazbear's Pizza: a magical place for kids and grown-ups alike, where fantasy and fun come to life. Fazbear Entertainment is not responsible for damage to property or person. Upon discovery of damage or if death has occurred, a missing person’s report will be filed within ninety days or as soon as property and premises have been thoroughly cleaned and bleached and the carpets have been replaced.' Blah, blah, blah…\nNow that might sound bad, I know. But there’s really nothing to worry about.\nUh, the animatronic characters here do get a bit quirky at night, but do I blame them? No! If I were forced to sing... those same stupid songs for twenty years, and I never got a bath? I’d probably be a bit irritable at night too. So remember: these characters hold a special place in the hearts of children, and you need to show them a little respect. Right? Okay.\nSo just be aware: the characters do tend to wander a bit. Uhh, they’re left in some kind of \"free-roaming mode\" at night. Uhh... something about their servos locking up if they get turned off for too long. Uhh... they used to be allowed to walk around during the day, too, but then there was the Bite of '87. Yeah... I-It’s amazing that the human body can live without the frontal lobe, you know?\nNow concerning your safety: the only real risk to you as a night watchman here, if any, is the fact that these characters, uhh, if they happen to see you after hours, probably won’t recognize you as a person. Th-They’ll most likely see you as a metal endoskeleton without its costume on. Now, since that’s against the rules here at Freddy Fazbear’s Pizza, they’ll probably try to... forcefully stuff you inside a Freddy Fazbear suit. Um, now that wouldn’t be so bad if the suits themselves weren’t filled with crossbeams, wires, and animatronic devices, especially around the facial area. So you can imagine how having your head forcefully pressed inside one of those could cause a bit of discomfort... and death. Uh, the only parts of you that would likely see the light of day again would be your eyeballs and teeth when they pop out the front of the mask, heh. ...Y-Yeah, they don’t tell you these things when you sign up…\nBut hey! First day should be a breeze; I’ll chat with you tomorrow. Uhh, check those cameras, and remember to close the doors only if absolutely necessary. Gotta conserve power.\nAlright. Goodnight."
 ];
 
 
@@ -155,3 +168,11 @@ var piDay = new cron.CronJob('59 13 14 3 *', function() {
     client.channels.cache.get('689160581336531058').send('3.1415926535897932384626433832795028841971693993751058209749445923078164062862089986280348253421170679821480865132823066470938446095505822317253594081284811174502841027019385211055596446229489549303819644288109756659334461284756482337867831652712019091456485669234603486104543266482133936072602491412737245870066063155881748815209209628292540917153643678925903600113305305488204665213841469519415116094330572703657595919530921861173819326117931051185480744623799627495673518857527248912279381830119491298336733624406566430860213949463952247371907021798609437027705392171762931767523846748184676694051320005681271452635608277857713427577896091736371787214684409012249534301465495853710507922796892589235420199561121290219608640344181598136297747713099605187072113499999983729780499510597317328160963185950244594553469083026425223082533446850352619311881710100031378387528865875332083814206171776691473035982534904287554687311595628638823537875937519577818577805321712268066130019278766111959092164201989');
 }, null, true, 'America/New_York');
 piDay.start();
+
+var threeAM = new cron.CronJob('00 03 * * *', function() {
+    var randomNum = Math.floor(Math.random() * 20);
+    if (randomNum == 0) {
+        client.channels.cache.get('689160581336531058').send('OH BOY 3 AM!');
+    }
+}, null, true, 'America/New_York');
+threeAM.start();
