@@ -55,7 +55,9 @@ var insults = [
     "Your personality is best described by the sound that’s made when you rub two styrofoam packing peanuts together",
     "The only reason you’re still alive today is because God forgot you in the back of their cosmic fridge",
     "You smell like mothballs and cat hair",
-    "please let me go I can’t stand you whores"
+    "please let me go I can’t stand you whores",
+    "Make like Mario on March 31st and *cease to exist*",
+    "i hope u get rushed in the first 45 seconds of bedwars"
 ]
 
 client.on('ready', () => {
