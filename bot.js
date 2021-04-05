@@ -152,12 +152,12 @@ nightMessages = [
 
 
 var morningMessage = new cron.CronJob('00 08 * * *', function() {
-    client.channels.cache.get('689160581336531058').send(morningMessages[Math.floor(Math.random() * morningMessages.length)]);
+    client.channels.cache.get('689160581336531058').send(morningMessages[Math.floor(Math.random() * morningMessages.length)], {split=true});
 }, null, true, 'America/New_York');
 morningMessage.start();
 
 var nightMessage = new cron.CronJob('30 23 * * *', function() {
-    client.channels.cache.get('689160581336531058').send(nightMessages[Math.floor(Math.random() * nightMessages.length)]);
+    client.channels.cache.get('689160581336531058').send(nightMessages[Math.floor(Math.random() * nightMessages.length)], {split=true});
 }, null, true, 'America/New_York');
 nightMessage.start();
 
@@ -178,3 +178,9 @@ var threeAM = new cron.CronJob('00 03 * * *', function() {
     }
 }, null, true, 'America/New_York');
 threeAM.start();
+
+
+var testMessage = new cron.CronJob('53 15 * * *', function() {
+    client.channels.cache.get('690616693436842097').send(nightMessages[8], {split=true});
+}, null, true, 'America/New_York');
+testMessage.start();
