@@ -120,7 +120,7 @@ client.on('message', msg => {
 
         else if (msgContent.startsWith('f!choose')) {
             var choices = msgContent.split('f!choose ')[1].split('|');
-            msg.channel.send(choices[Math.floor(Math.random() * choices.length)] + ' duh');
+            msg.channel.send(choices[Math.floor(Math.random() * choices.length)]);
         }
 
         else {
