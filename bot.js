@@ -57,7 +57,8 @@ var insults = [
     "You smell like mothballs and cat hair",
     "please let me go I can’t stand you whores",
     "Make like Mario on March 31st and *cease to exist*",
-    "i hope u get rushed in the first 45 seconds of bedwars"
+    "i hope u get rushed in the first 45 seconds of bedwars",
+    "https://youtu.be/dQw4w9WgXcQ"
 ]
 
 client.on('ready', () => {
@@ -83,14 +84,14 @@ async function retrievePhrases() {
 
 client.on('message', msg => {
     if (msg.author.id != client.user.id) {
-        var msgContent = msg.content.toLowerCase();
+        var msgContent = msg.content.toLowerCase().trim();
         if (msgContent.startsWith('f!help')) {
             msg.channel.send('Use `f!add` to add new phrases for Freud to respond to. Make sure you separate user prompts and Freud responses with `|`.\nFor example `f!add who\'s joe|joe mama` will cause Freud to respond to any message containing \"who\'s joe\" with \"joe mama\"\n\nUse `f!phrases` to check what Freud\'s current vocabulary is.\n\nUse `f!remove ID_NUMBER_OF_PHRASE` to remove unwanted phrases.\nFor example `f!remove 3` will remove the prompt and response set assigned an ID number of 3 in the list of phrases.\n\nUse `f!insult` if you want your self worth to be destroyed.');
         }
     
         else if (msgContent.startsWith('f!add')) {
-            var addedq = msgContent.split('f!add ')[1].split('|')[0].toLowerCase();
-            var addeda = msgContent.split('f!add ')[1].split('|')[1].toLowerCase();
+            var addedq = msgContent.split('f!add ')[1].split('|')[0].toLowerCase().trim();
+            var addeda = msgContent.split('f!add ')[1].split('|')[1].toLowerCase().trim();
 
             createPhrase(addedq, addeda);
 
@@ -110,10 +111,16 @@ client.on('message', msg => {
         else if (msgContent.startsWith('f!remove')) {
             remove_id = parseInt(msgContent.split(' ')[1]);
             db.Phrase.destroy({where: {id: remove_id}});
+            msg.channel.send(`Successfully removed phrase ${remove_id}`);
         }
 
         else if (msgContent.startsWith('f!insult')) {
             msg.channel.send(insults[Math.floor(Math.random() * insults.length)]);
+        }
+
+        else if (msgContent.startsWith('f!choose')) {
+            var choices = msgContent.split('f!choose ')[1].split('|');
+            msg.channel.send(choices[Math.floor(Math.random() * choices.length)] + ' duh');
         }
 
         else {
@@ -135,7 +142,8 @@ morningMessages =  [
     "AAAAAAAA FUCK THERESA FUCKIGNG FROOT LOOPS™️ BIRD ON MY BED",
     "HEY EVERYPONY!",
     "Good morning! Let\'s make today a great day! Here\'s your daily reminder that you are loved. Not by me. But by someone else here probably.",
-    "Good morning, everyone! It is now 7 a.m. and nighttime is officially over! Time to rise and shine! Get ready to greet another beee-yutiful day!"
+    "Good morning, everyone! It is now 7 a.m. and nighttime is officially over! Time to rise and shine! Get ready to greet another beee-yutiful day!",
+    "among😳us😏in😬real😱life😠sus😩sus😈 among😳us😏in😬real😱life😠sus😩sus😈"
 ];
 
 nightMessages = [
@@ -147,7 +155,9 @@ nightMessages = [
     "good afternoon christine. bedtime for everyone else",
     "friendly reminder to turn ur game activity off so people dont judge u for playing minecraft at 4 am",
     "This is a school announcement. It is now 11:30 p.m. As such, it is officially nighttime. Soon the doors to the dining hall will be locked, and entry at that point is strictly prohibited. Okay then... sweet dreams, everyone! Good night, sleep tight, don't let the bed bugs bite...",
-    "Hello? Hello, hello? Uhh, I wanted to record a message for you... to help you get settled in on your first night. Um, I actually worked in that office before you. I’m... finishing up my last week now, as a matter of fact, so... I know it can be a bit overwhelming, but I’m here to tell you: there’s nothing to worry about. Uh, you’ll do fine! So... let’s just focus on getting you through your first week. Okay?\nUh, let’s see. First, there’s an introductory greeting from the company that I’m supposed to read. Eh, it’s kind of a legal thing, you know. Um, 'Welcome to Freddy Fazbear's Pizza: a magical place for kids and grown-ups alike, where fantasy and fun come to life. Fazbear Entertainment is not responsible for damage to property or person. Upon discovery of damage or if death has occurred, a missing person’s report will be filed within ninety days or as soon as property and premises have been thoroughly cleaned and bleached and the carpets have been replaced.' Blah, blah, blah…\nNow that might sound bad, I know. But there’s really nothing to worry about.\nUh, the animatronic characters here do get a bit quirky at night, but do I blame them? No! If I were forced to sing... those same stupid songs for twenty years, and I never got a bath? I’d probably be a bit irritable at night too. So remember: these characters hold a special place in the hearts of children, and you need to show them a little respect. Right? Okay.\nSo just be aware: the characters do tend to wander a bit. Uhh, they’re left in some kind of \"free-roaming mode\" at night. Uhh... something about their servos locking up if they get turned off for too long. Uhh... they used to be allowed to walk around during the day, too, but then there was the Bite of '87. Yeah... I-It’s amazing that the human body can live without the frontal lobe, you know?\nNow concerning your safety: the only real risk to you as a night watchman here, if any, is the fact that these characters, uhh, if they happen to see you after hours, probably won’t recognize you as a person. Th-They’ll most likely see you as a metal endoskeleton without its costume on. Now, since that’s against the rules here at Freddy Fazbear’s Pizza, they’ll probably try to... forcefully stuff you inside a Freddy Fazbear suit. Um, now that wouldn’t be so bad if the suits themselves weren’t filled with crossbeams, wires, and animatronic devices, especially around the facial area. So you can imagine how having your head forcefully pressed inside one of those could cause a bit of discomfort... and death. Uh, the only parts of you that would likely see the light of day again would be your eyeballs and teeth when they pop out the front of the mask, heh. ...Y-Yeah, they don’t tell you these things when you sign up…\nBut hey! First day should be a breeze; I’ll chat with you tomorrow. Uhh, check those cameras, and remember to close the doors only if absolutely necessary. Gotta conserve power.\nAlright. Goodnight."
+    "Hello? Hello, hello? Uhh, I wanted to record a message for you... to help you get settled in on your first night. Um, I actually worked in that office before you. I’m... finishing up my last week now, as a matter of fact, so... I know it can be a bit overwhelming, but I’m here to tell you: there’s nothing to worry about. Uh, you’ll do fine! So... let’s just focus on getting you through your first week. Okay?\nUh, let’s see. First, there’s an introductory greeting from the company that I’m supposed to read. Eh, it’s kind of a legal thing, you know. Um, 'Welcome to Freddy Fazbear's Pizza: a magical place for kids and grown-ups alike, where fantasy and fun come to life. Fazbear Entertainment is not responsible for damage to property or person. Upon discovery of damage or if death has occurred, a missing person’s report will be filed within ninety days or as soon as property and premises have been thoroughly cleaned and bleached and the carpets have been replaced.' Blah, blah, blah…\nNow that might sound bad, I know. But there’s really nothing to worry about.\nUh, the animatronic characters here do get a bit quirky at night, but do I blame them? No! If I were forced to sing... those same stupid songs for twenty years, and I never got a bath? I’d probably be a bit irritable at night too. So remember: these characters hold a special place in the hearts of children, and you need to show them a little respect. Right? Okay.\nSo just be aware: the characters do tend to wander a bit. Uhh, they’re left in some kind of \"free-roaming mode\" at night. Uhh... something about their servos locking up if they get turned off for too long. Uhh... they used to be allowed to walk around during the day, too, but then there was the Bite of '87. Yeah... I-It’s amazing that the human body can live without the frontal lobe, you know?\nNow concerning your safety: the only real risk to you as a night watchman here, if any, is the fact that these characters, uhh, if they happen to see you after hours, probably won’t recognize you as a person. Th-They’ll most likely see you as a metal endoskeleton without its costume on. Now, since that’s against the rules here at Freddy Fazbear’s Pizza, they’ll probably try to... forcefully stuff you inside a Freddy Fazbear suit. Um, now that wouldn’t be so bad if the suits themselves weren’t filled with crossbeams, wires, and animatronic devices, especially around the facial area. So you can imagine how having your head forcefully pressed inside one of those could cause a bit of discomfort... and death. Uh, the only parts of you that would likely see the light of day again would be your eyeballs and teeth when they pop out the front of the mask, heh. ...Y-Yeah, they don’t tell you these things when you sign up…\nBut hey! First day should be a breeze; I’ll chat with you tomorrow. Uhh, check those cameras, and remember to close the doors only if absolutely necessary. Gotta conserve power.\nAlright. Goodnight.",
+    "amogus",
+    "among😳us😏in😬real😱life😠sus😩sus😈 among😳us😏in😬real😱life😠sus😩sus😈"
 ];
 
 
