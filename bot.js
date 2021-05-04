@@ -193,6 +193,11 @@ client.on('message', msg => {
             msg.channel.send(hits[Math.floor(Math.random() * hits.length)]);
         }
 
+        else if (msgContent.startsWith('f!meme')) {
+            let imageText = msgContent.split('f!meme ')[1];
+            msg.channel.send(imageText);
+        }
+
         else {
             retrievePhrases().then(phrases => {
                 for (let i = 0; i < phrases.length; i++) {
