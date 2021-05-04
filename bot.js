@@ -29,11 +29,8 @@ const nightMessages = [
 ];
 
 const insults = [
-    "You are a prime example of an Oedipus complex",
-    "I wouldn’t even fuck you and we all know my track record",
     "Yeah? Little bitch baby? Youre too pussy to even eat lettuce aren’t you",
     "Whore.",
-    "You never left the oral stage and it shows",
     "I don’t do this shit for free fuck off",
     "Mwah",
     "Have an absolutely terrible day. Just complete and utter shit. I hope your funerals tomorrow, asshole",
@@ -43,15 +40,12 @@ const insults = [
     "Why do you want me to insult you? I’m a robot. What am I gonna call you, gay? We already know",
     "Baby u are built like an empty can of black beans",
     "ur mom gay",
-    "I wouldn’t fuck you even if you looked like my mother.",
     "Are you Mrs. Dunay? Because you deserve to crumble like your crumb cake.",
     "A boy? Hoe.",
     "Ha you’ve never even dated anyone",
-    "God please leave me alone, I’m already dead",
     "I’m gonna make your grave a communal bathroom",
     "You look like you had a tumblr in 2014. You know the response for ‘I like your shoelaces’ & it shows",
     "Id rob you but the only thing in your pockets is a Starbucks receipt and toothpaste stains",
-    "You’re worse than me, and I’m Freud",
     ":/",
     "Cmon..... you know. You know.",
     "Gay gay homosexual gay",
@@ -61,7 +55,6 @@ const insults = [
     "BBBRRRRAUGGHHHSGSGHHJ!!!! THATS WHAT I HEAR WHEN U TALK!! BAABABABHAAABHAVBDBRHRHSGAHDV",
     "heeeeeeyy sexyyyy ;;))))....... shit sorry wrong person. Never contact me again. Slut",
     "What are you doing with your life? Not anything better than I am",
-    "I’m gonna fuck your mom",
     "Haha, virgin",
     "Your yabos are inferior",
     "At least a magnet is attractive",
@@ -155,7 +148,7 @@ client.on('message', msg => {
     if (msg.author.id != client.user.id) {
         let msgContent = msg.content.trim();
         if (msgContent.startsWith('f!help')) {
-            msg.channel.send('Use `f!add` to add new phrases for Freud to respond to. Make sure you separate user prompts and Freud responses with `|`.\nFor example `f!add who\'s joe|joe mama` will cause Freud to respond to any message containing \"who\'s joe\" with \"joe mama\"\n\nUse `f!phrases` to check what Freud\'s current vocabulary is.\n\nUse `f!remove ID_NUMBER_OF_PHRASE` to remove unwanted phrases.\nFor example `f!remove 3` will remove the prompt and response set assigned an ID number of 3 in the list of phrases.\n\nUse `f!insult` if you want your self worth to be destroyed.');
+            msg.channel.send('Use `f!add` to add new phrases for Obama to respond to. Make sure you separate user prompts and Obama responses with `|`.\nFor example `f!add who\'s joe|joe mama` will cause Obama to respond to any message containing \"who\'s joe\" with \"joe mama\"\n\nUse `f!phrases` to check what Obama\'s current vocabulary is.\n\nUse `f!remove ID_NUMBER_OF_PHRASE` to remove unwanted phrases.\nFor example `f!remove 3` will remove the prompt and response set assigned an ID number of 3 in the list of phrases.\n\nUse `f!insult` if you want your self worth to be destroyed.');
         }
     
         else if (msgContent.startsWith('f!add')) {
@@ -164,7 +157,7 @@ client.on('message', msg => {
 
             createPhrase(addedq, addeda);
 
-            msg.channel.send(`Freud will now respond to \"${addedq}\" with \"${addeda}\"`);
+            msg.channel.send(`Obama will now respond to \"${addedq}\" with \"${addeda}\"`);
         }
 
         else if (msgContent.startsWith('f!phrases')) {
