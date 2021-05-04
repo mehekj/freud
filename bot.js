@@ -165,7 +165,7 @@ async function obamaImage(text) {
     }
     
 
-    context.fillText(text, canvas.width / 2, 1100 + fontSize);
+    context.fillText(text, canvas.width / 2, 1220 - fontSize / 2);
     return new Discord.MessageAttachment(canvas.toBuffer(), 'poster.png');
 }
 
