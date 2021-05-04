@@ -161,7 +161,7 @@ async function obamaImage(text) {
     let fontSize = 180;
     context.font = `${fontSize}px gotham`;
     while (context.measureText(text).width > canvas.width - 10) {
-        context.font = `${fontSize -= 10}px gotham`;
+        context.font = `${fontSize -= 5}px gotham`;
     }
     
 
