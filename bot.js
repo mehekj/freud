@@ -6,7 +6,7 @@ const cron = require('cron');
 const Discord = require('discord.js');
 const client = new Discord.Client();
 
-const canvas = require('canvas');
+const Canvas = require('canvas');
 
 const morningMessages =  [
     "Get up sluts it’s 8 am",
@@ -146,10 +146,18 @@ async function retrievePhrases() {
     }
 }
 
-function obamaImage(text) {
-    const context = canvas.getContext('2d');
-    const base = await canvas.loadImage('./obama.png');
+async function obamaImage(text) {
+    const canvas = Canvas.createCanvas(843, 1287);
+	const context = canvas.getContext('2d');
+
+    const base = await Canvas.loadImage('./obama.png');
     context.drawImage(base, 0, 0, canvas.width, canvas.height);
+
+    context.fillStyle = "#ffffff";
+    Canvas.registerFont('Gotham-Black.otf', {family: 'gotham'});
+    context.font = '100px gotham';
+
+    context.fillText(text, canvas.width / 2, 1200);
     return new Discord.MessageAttachment(canvas.toBuffer(), 'poster.png');
 }
 
@@ -204,7 +212,10 @@ client.on('message', msg => {
 
         else if (msgContent.startsWith('f!meme')) {
             let imageText = msgContent.split('f!meme ')[1];
-            msg.channel.send(obamaImage(imageText));
+            obamaImage(imageText).then(attachment => {
+                msg.channel.send("you're welcome", attachment);
+            });
+            
         }
 
         else {
