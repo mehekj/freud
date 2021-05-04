@@ -6,6 +6,8 @@ const cron = require('cron');
 const Discord = require('discord.js');
 const client = new Discord.Client();
 
+const canvas = require('canvas');
+
 const morningMessages =  [
     "Get up sluts it’s 8 am",
     "AAAAAAAA FUCK THERESA FUCKIGNG FROOT LOOPS™️ BIRD ON MY BED",
@@ -144,6 +146,13 @@ async function retrievePhrases() {
     }
 }
 
+function obamaImage(text) {
+    const context = canvas.getContext('2d');
+    const base = await canvas.loadImage('./obama.png');
+    context.drawImage(base, 0, 0, canvas.width, canvas.height);
+    return new Discord.MessageAttachment(canvas.toBuffer(), 'poster.png');
+}
+
 client.on('message', msg => {
     if (msg.author.id != client.user.id) {
         let msgContent = msg.content.trim();
@@ -195,7 +204,7 @@ client.on('message', msg => {
 
         else if (msgContent.startsWith('f!meme')) {
             let imageText = msgContent.split('f!meme ')[1];
-            msg.channel.send(imageText);
+            msg.channel.send(obamaImage(imageText));
         }
 
         else {
