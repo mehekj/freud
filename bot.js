@@ -17,7 +17,6 @@ const morningMessages =  [
 
 const nightMessages = [
     "ssssssssssssssssssssssssssssssssshhhhhhhhhhhhhhhhhhhhhhhhhh............ close your eyes my sweet............. the fear of the present day will soon become the nightmare of days past...... rest while you still have the lungs to do it.",
-    "All good bitches go to bed before daddy freud gets angry...",
     "Good night friends! If you\'re still awake go to sleep soon or else I will come find you and do it myself! :)",
     "every minute you stay awake pass this point you stray farther from gods light",
     "Get in the bed or get in the fucking urn. Your choice.",
