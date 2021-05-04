@@ -153,11 +153,19 @@ async function obamaImage(text) {
     const base = await Canvas.loadImage('./obama.png');
     context.drawImage(base, 0, 0, canvas.width, canvas.height);
 
-    context.fillStyle = "#ffffff";
+    context.fillStyle = "#5a7179";
     Canvas.registerFont('Gotham-Black.otf', {family: 'gotham'});
-    context.font = '100px gotham';
+    context.textAlign = 'center';
+    context.textBaseline = 'middle';
 
-    context.fillText(text, canvas.width / 2, 1200);
+    let fontSize = 180;
+    context.font = `${fontSize}px gotham`;
+    while (context.measureText(text).width > canvas.width - 10) {
+        context.font = `${fontSize -= 10}px gotham`;
+    }
+    
+
+    context.fillText(text, canvas.width / 2, 1100 + fontSize);
     return new Discord.MessageAttachment(canvas.toBuffer(), 'poster.png');
 }
 
@@ -213,7 +221,7 @@ client.on('message', msg => {
         else if (msgContent.startsWith('f!meme')) {
             let imageText = msgContent.split('f!meme ')[1];
             obamaImage(imageText).then(attachment => {
-                msg.channel.send("you're welcome", attachment);
+                msg.channel.send(attachment);
             });
             
         }
