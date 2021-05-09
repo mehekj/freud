@@ -241,12 +241,16 @@ client.on('message', msg => {
 
 
 let morningMessage = new cron.CronJob('00 08 * * *', function() {
-    client.channels.cache.get('689160581336531058').send(morningMessages[Math.floor(Math.random() * morningMessages.length)], {split: true});
+    let randomGM = morningMessages[Math.floor(Math.random() * morningMessages.length)];
+    client.channels.cache.get('689160581336531058').send(randomGM, {split: true});
+    client.channels.cache.get('797289162880974861').send(randomGM, {split: true});
 }, null, true, 'America/New_York');
 morningMessage.start();
 
 let nightMessage = new cron.CronJob('30 23 * * *', function() {
-    client.channels.cache.get('689160581336531058').send(nightMessages[Math.floor(Math.random() * nightMessages.length)], {split: true});
+    let randomGN = nightMessages[Math.floor(Math.random() * nightMessages.length)];
+    client.channels.cache.get('689160581336531058').send(randomGN, {split: true});
+    client.channels.cache.get('797289162880974861').send(randomGN, {split: true});
 }, null, true, 'America/New_York');
 nightMessage.start();
 
