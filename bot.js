@@ -13,8 +13,7 @@ const morningMessages =  [
     "AAAAAAAA FUCK THERESA FUCKIGNG FROOT LOOPS™️ BIRD ON MY BED",
     "HEY EVERYPONY!",
     "Good morning! Let\'s make today a great day! Here\'s your daily reminder that you are loved. Not by me. But by someone else here probably.",
-    "Good morning, everyone! It is now 7 a.m. and nighttime is officially over! Time to rise and shine! Get ready to greet another beee-yutiful day!",
-    "among😳us😏in😬real😱life😠sus😩sus😈 among😳us😏in😬real😱life😠sus😩sus😈"
+    "Good morning, everyone! It is now 7 a.m. and nighttime is officially over! Time to rise and shine! Get ready to greet another beee-yutiful day!"
 ];
 
 const nightMessages = [
